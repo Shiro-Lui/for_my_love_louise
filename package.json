@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-gallery-manifest.mjs",
     "dev": "vite --host 0.0.0.0",
+    "prebuild": "node scripts/generate-gallery-manifest.mjs",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "generate:qr": "node scripts/generate-qr.mjs"

@@ -1,16 +1,24 @@
+import galleryPhotoFiles from './gallery-photos.js';
+
 const scenes = [...document.querySelectorAll('.scene')];
 const countdownEls = [...document.querySelectorAll('.countdown-number')];
 const introLines = [...document.querySelectorAll('.line')];
 const galleryHeart = document.getElementById('gallery-heart');
 const galleryNextButton = document.getElementById('gallery-next');
+const photoViewer = document.getElementById('photo-viewer');
+const photoViewerImage = document.getElementById('photo-viewer-image');
+const photoCaption = document.getElementById('photo-caption');
+const photoCloseButton = document.getElementById('photo-close');
+const photoPreviousButton = document.getElementById('photo-previous');
+const photoNextButton = document.getElementById('photo-next');
+const photoCounter = galleryPhotoFiles.length;
 const prevLetterButton = document.getElementById('prev-letter');
 const nextLetterButton = document.getElementById('next-letter');
 const letterSteps = [...document.querySelectorAll('.letter-step')];
 const starsContainer = document.getElementById('stars');
 const heartsContainer = document.getElementById('hearts');
-
 let currentLetterIndex = 0;
-let introSequenceFinished = false;
+let currentPhotoIndex = 0;
 
 function setActiveScene(sceneName) {
   scenes.forEach((scene) => {
@@ -40,7 +48,6 @@ function runIntroSequence() {
 
   setTimeout(() => {
     setActiveScene('sky');
-    introSequenceFinished = true;
   }, 7200);
 
   setTimeout(() => {
@@ -120,37 +127,98 @@ function buildFloatingHearts() {
 }
 
 function buildGallery() {
-  const photoNames = [
-    `${import.meta.env.BASE_URL}images/loise.png`,
-    ...Array.from(
-      { length: 7 },
-      (_, index) => `${import.meta.env.BASE_URL}images/photo${index + 2}.jpg`
-    ),
+  const rows = [
+    { y: 20, start: 30, end: 70, weight: 0.2, count: 0 },
+    { y: 40, start: 17, end: 83, weight: 0.35, count: 0 },
+    { y: 60, start: 28, end: 72, weight: 0.3, count: 0 },
+    { y: 80, start: 40, end: 60, weight: 0.15, count: 0 },
   ];
-  const positions = [
-    { left: '20%', top: '18%', angle: '-8deg', shift: '-10px', delay: '0s' },
-    { left: '37%', top: '12%', angle: '10deg', shift: '12px', delay: '0.15s' },
-    { left: '57%', top: '18%', angle: '-12deg', shift: '-14px', delay: '0.3s' },
-    { left: '72%', top: '30%', angle: '8deg', shift: '14px', delay: '0.45s' },
-    { left: '16%', top: '52%', angle: '9deg', shift: '-14px', delay: '0.6s' },
-    { left: '34%', top: '62%', angle: '-10deg', shift: '8px', delay: '0.75s' },
-    { left: '53%', top: '54%', angle: '12deg', shift: '-10px', delay: '0.9s' },
-    { left: '68%', top: '62%', angle: '-7deg', shift: '12px', delay: '1.05s' },
-  ];
+  let unplacedCount = galleryPhotoFiles.length;
 
-  galleryHeart.innerHTML = photoNames
+  rows.forEach((row) => {
+    row.count = Math.floor(galleryPhotoFiles.length * row.weight);
+    unplacedCount -= row.count;
+  });
+
+  rows
+    .map((row, index) => ({
+      index,
+      remainder: galleryPhotoFiles.length * row.weight - row.count,
+    }))
+    .sort((a, b) => b.remainder - a.remainder)
+    .slice(0, unplacedCount)
+    .forEach(({ index }) => {
+      rows[index].count += 1;
+    });
+
+  const positions = rows.flatMap((row) =>
+    Array.from({ length: row.count }, (_, index) => ({
+      left: row.count === 1 ? 50 : row.start + ((row.end - row.start) * index) / (row.count - 1),
+      top: row.y,
+    }))
+  );
+  const minSpacing = Math.min(
+    ...rows
+      .filter((row) => row.count > 1)
+      .map((row) => ((row.end - row.start) / (row.count - 1)) * 0.9)
+  );
+  const populatedRows = rows.filter((row) => row.count > 0);
+  const minVerticalSpacing = Math.min(
+    ...populatedRows.slice(1).map((row, index) => (row.y - populatedRows[index].y) * 0.82 * 0.9)
+  );
+  const photoWidth = Math.min(20, minSpacing, minVerticalSpacing);
+  galleryHeart.style.setProperty('--gallery-photo-width', `${photoWidth}%`);
+
+  galleryHeart.innerHTML = galleryPhotoFiles
     .map(
-      (src, index) => `
-        <img
+      (fileName, index) => `
+        <button
           class="gallery-item"
-          src="${src}"
-          alt="Foto ke-${index + 1}"
-          style="left:${positions[index].left}; top:${positions[index].top}; --angle:${positions[index].angle}; --x-shift:${positions[index].shift}; --delay:${positions[index].delay};"
-        />
+          type="button"
+          data-photo-index="${index}"
+          aria-label="Lihat foto ke-${index + 1}"
+          style="left:${positions[index].left}%; top:${positions[index].top}%; --delay:${index * 0.08}s; z-index:${index + 1};"
+        >
+          <img
+            src="${import.meta.env.BASE_URL}picture/${encodeURIComponent(fileName)}"
+            alt=""
+            loading="lazy"
+          />
+        </button>
       `
     )
     .join('');
 }
+
+function showPhoto(index) {
+  currentPhotoIndex = (index + photoCounter) % photoCounter;
+  const fileName = galleryPhotoFiles[currentPhotoIndex];
+
+  photoViewerImage.src = `${import.meta.env.BASE_URL}picture/${encodeURIComponent(fileName)}`;
+  photoViewerImage.alt = `Foto ke-${currentPhotoIndex + 1}`;
+  photoCaption.textContent = `Foto ${currentPhotoIndex + 1} dari ${photoCounter}`;
+
+  if (!photoViewer.open) {
+    photoViewer.showModal();
+  }
+}
+
+galleryHeart.addEventListener('click', (event) => {
+  const photoButton = event.target.closest('[data-photo-index]');
+  if (photoButton) {
+    showPhoto(Number(photoButton.dataset.photoIndex));
+  }
+});
+
+photoCloseButton.addEventListener('click', () => photoViewer.close());
+photoPreviousButton.addEventListener('click', () => showPhoto(currentPhotoIndex - 1));
+photoNextButton.addEventListener('click', () => showPhoto(currentPhotoIndex + 1));
+
+photoViewer.addEventListener('click', (event) => {
+  if (event.target === photoViewer) {
+    photoViewer.close();
+  }
+});
 
 function init() {
   setActiveScene('intro');

@@ -19,11 +19,9 @@ npm run generate:qr
 
 Atau edit `public/loise-qr.png` dengan hasil QR final setelah repository GitHub Pages aktif.
 
-## Mengganti foto dummy
+## Foto galeri
 
-1. Buka folder `public/images/`
-2. Ganti file `photo1.jpg` sampai `photo8.jpg` dengan foto yang Anda inginkan
-3. Pastikan ukuran gambar masih proporsional untuk tampilan hati
+Letakkan semua foto galeri di folder `public/picture/`. Foto JPG, PNG, WebP, GIF, dan AVIF akan dimasukkan otomatis saat situs dijalankan atau dibangun. Urutan foto mengikuti nama file. Klik foto di susunan berbentuk hati untuk membukanya, lalu gunakan tombol sebelumnya/berikutnya untuk melihat foto lain.
 
 ## Deployment GitHub Pages
 
