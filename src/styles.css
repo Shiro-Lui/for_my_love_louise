@@ -68,8 +68,7 @@ button {
 .sky-scene,
 .letter-scene,
 .gallery-scene,
-.closure-scene,
-.qr-scene {
+.closure-scene {
   min-height: 100vh;
 }
 
@@ -445,85 +444,6 @@ button {
 .response-message.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.qr-scene {
-  position: relative;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(180deg, rgba(10, 13, 22, 0.88), rgba(17, 11, 24, 0.95));
-  min-height: 70vh;
-  padding: 2rem 1rem 3rem;
-}
-
-.qr-card {
-  width: min(88vw, 440px);
-  padding: 1.5rem 1.15rem 1.8rem;
-  text-align: center;
-  border-radius: 28px;
-  background: rgba(19, 22, 33, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 30px rgba(255, 130, 220, 0.12);
-}
-
-.qr-heart-frame {
-  position: relative;
-  width: min(72vw, 260px);
-  aspect-ratio: 1;
-  margin: 0 auto 1.1rem;
-  padding: 15px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, rgba(255, 125, 206, 0.26), rgba(255, 217, 238, 0.08));
-  box-shadow: inset 0 0 0 2px rgba(255, 160, 216, 0.38), 0 0 16px rgba(255, 110, 190, 0.26);
-}
-
-.qr-heart-frame::before,
-.qr-heart-frame::after {
-  content: '❤';
-  position: absolute;
-  color: rgba(255, 136, 200, 0.8);
-  font-size: 1.5rem;
-  text-shadow: 0 0 14px rgba(255, 121, 197, 0.72);
-}
-
-.qr-heart-frame::before {
-  left: -6px;
-  top: 40%;
-}
-
-.qr-heart-frame::after {
-  right: -8px;
-  bottom: 32%;
-}
-
-.qr-heart-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.qr-card h3 {
-  color: #ffb4e3;
-  margin: 0 0 0.4rem;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  text-shadow: 0 0 20px rgba(255, 152, 221, 0.5);
-}
-
-.qr-card p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  line-height: 1.7;
-}
-
-.qr-link {
-  display: inline-block;
-  margin-top: 1rem;
-  color: #ffdced;
-  text-decoration: none;
-  font-weight: 700;
 }
 
 @media (max-width: 560px) {
