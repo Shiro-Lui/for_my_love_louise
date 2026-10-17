@@ -120,10 +120,13 @@ function buildFloatingHearts() {
 }
 
 function buildGallery() {
-  const photoNames = Array.from(
-    { length: 8 },
-    (_, index) => `${import.meta.env.BASE_URL}images/photo${index + 1}.jpg`
-  );
+  const photoNames = [
+    `${import.meta.env.BASE_URL}images/loise.png`,
+    ...Array.from(
+      { length: 7 },
+      (_, index) => `${import.meta.env.BASE_URL}images/photo${index + 2}.jpg`
+    ),
+  ];
   const positions = [
     { left: '20%', top: '18%', angle: '-8deg', shift: '-10px', delay: '0s' },
     { left: '37%', top: '12%', angle: '10deg', shift: '12px', delay: '0.15s' },
