@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Website permintaan maaf untuk Loise dengan pesan tulus dan hati yang terbuka."
+    />
+    <title>Untuk Loise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <section class="scene intro-scene active" aria-live="polite">
+        <canvas id="rain-canvas" aria-hidden="true"></canvas>
+        <div class="intro-overlay">
+          <div class="countdown-wrapper" aria-label="Hitung mundur">
+            <div class="countdown-number active" data-count="3">3</div>
+            <div class="countdown-number" data-count="2">2</div>
+            <div class="countdown-number" data-count="1">1</div>
+          </div>
+          <div class="intro-lines" aria-live="polite">
+            <div class="line" data-line="0">HAI, LOISE...</div>
+            <div class="line" data-line="1">ADA SESUATU YANG INGIN AKU SAMPAIKAN.</div>
+            <div class="line" data-line="2">MAAF SUDAH MENGECEWAKANMU. ❤️</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene sky-scene" aria-label="Latar langit malam">
+        <div class="sky-glow"></div>
+        <div class="stars" id="stars" aria-hidden="true"></div>
+        <div class="hearts" id="hearts" aria-hidden="true"></div>
+        <div class="sky-message">
+          <span>LOISE,</span>
+          <span>ada sesuatu yang ingin aku sampaikan.</span>
+        </div>
+      </section>
+
+      <section class="scene letter-scene" aria-label="Surat permintaan maaf">
+        <div class="letter-card">
+          <div class="letter-badge">Untuk Loise</div>
+          <div class="letter-slider" id="letter-slider">
+            <article class="letter-step active">
+              <p>Hai, Loise ❤️</p>
+              <p>Ada sesuatu yang selama ini ingin aku sampaikan kepadamu.</p>
+            </article>
+            <article class="letter-step">
+              <p>Aku minta maaf karena sudah mengecewakanmu.</p>
+              <p>
+                Aku sadar mungkin ada sikap dan perkataanku yang membuatmu terluka. Aku tidak ingin
+                menganggap remeh perasaanmu, dan aku tahu sekadar meminta maaf tidak akan langsung
+                memperbaiki semuanya.
+              </p>
+            </article>
+            <article class="letter-step">
+              <p>Aku ingin belajar dari kesalahan yang pernah aku lakukan.</p>
+              <p>
+                Aku ingin menjadi seseorang yang lebih baik, lebih dewasa, lebih memahami perasaanmu,
+                dan lebih bisa menjaga kepercayaanmu.
+              </p>
+            </article>
+            <article class="letter-step">
+              <p>Jujur, sampai sekarang kamu masih berarti bagiku.</p>
+              <p>
+                Aku masih menyimpan harapan untuk bisa memperbaiki hubungan kita, bukan dengan
+                mengulangi kesalahan yang sama, tetapi dengan berusaha menjadi lebih baik.
+              </p>
+            </article>
+            <article class="letter-step">
+              <p>Loise, kalau masih ada kesempatan dan kamu juga menginginkannya,</p>
+              <p>
+                aku ingin kita mencoba kembali dari awal. Aku ingin kembali menjadi pacarmu, membangun
+                hubungan yang lebih sehat, dan membuktikan lewat tindakan bahwa permintaan maafku
+                bukan sekadar kata-kata.
+              </p>
+            </article>
+            <article class="letter-step">
+              <p>Aku tidak ingin memaksamu menerima perasaanku.</p>
+              <p>
+                Aku hanya ingin jujur tentang apa yang ada di hatiku. Maafkan aku, Loise. ❤️
+              </p>
+            </article>
+          </div>
+          <div class="letter-actions">
+            <button class="ghost-button" id="prev-letter" type="button">Kembali</button>
+            <button class="primary-button" id="next-letter" type="button">Lanjut</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene gallery-scene" aria-label="Galeri foto hati">
+        <div class="gallery-copy">
+          Beberapa hal mungkin telah berubah, tetapi aku masih ingin memperbaiki apa yang pernah kita
+          punya. ❤️
+        </div>
+        <div class="gallery-heart" id="gallery-heart" aria-label="Galeri foto berbentuk hati"></div>
+      </section>
+
+      <section class="scene closure-scene" aria-label="Kesempatan kedua">
+        <div class="closure-content">
+          <p class="closing-tag">Untuk Loise ❤️</p>
+          <p>Maaf sudah mengecewakanmu.</p>
+          <p>
+            Aku ingin belajar dari kesalahanku dan membuktikan bahwa aku bisa menjadi lebih baik.
+          </p>
+          <p>Kalau masih ada kesempatan, aku ingin memperbaiki semuanya bersamamu.</p>
+          <h2>Loise, maukah kamu memberiku kesempatan untuk kembali menjadi pacarmu?</h2>
+          <div class="response-row">
+            <button class="primary-button accept-button" id="accept-button" type="button">
+              Aku Mau ❤️
+            </button>
+            <button class="ghost-button delay-button" id="delay-button" type="button">
+              Aku Butuh Waktu 🤍
+            </button>
+          </div>
+          <div id="response-message" class="response-message" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="qr-scene" aria-label="QR Code untuk membuka website">
+        <div class="qr-card">
+          <div class="qr-heart-frame">
+            <img src="/loise-qr.png" alt="QR code berbentuk hati untuk membuka website" />
+          </div>
+          <h3>Scan aku, Loise ❤️</h3>
+          <p>Ada sesuatu yang ingin aku sampaikan kepadamu.</p>
+          <a class="qr-link" href="/qr.html" target="_blank" rel="noreferrer">Buka versi QR</a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
