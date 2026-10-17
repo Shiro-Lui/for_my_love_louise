@@ -328,8 +328,11 @@ button {
 .gallery-scene {
   background: linear-gradient(180deg, rgba(6, 11, 20, 0.98), rgba(14, 10, 22, 0.98));
   display: grid;
-  place-items: center;
-  padding: 1.5rem 1rem 2rem;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  justify-items: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
 }
 
 .gallery-copy {
@@ -346,8 +349,8 @@ button {
 
 .gallery-heart {
   position: relative;
-  width: min(82vw, 520px);
-  height: min(78vw, 520px);
+  width: min(82vw, 520px, 58vh);
+  height: min(78vw, 520px, 58vh);
   margin: 0 auto;
   background: linear-gradient(180deg, rgba(255, 164, 214, 0.15), rgba(255, 65, 120, 0.08));
   clip-path: polygon(50% 100%, 13% 82%, 0 52%, 6% 18%, 26% 2%, 50% 24%, 74% 2%, 94% 18%, 100% 52%, 87% 82%);
@@ -367,6 +370,19 @@ button {
   transform: translate3d(0, 18px, 0) scale(0.88) rotate(var(--angle, 0deg));
   animation: photoAppear 0.75s ease forwards;
   animation-delay: var(--delay, 0s);
+}
+
+.gallery-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.response-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
 }
 
 @keyframes photoAppear {

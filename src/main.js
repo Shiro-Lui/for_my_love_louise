@@ -2,11 +2,9 @@ const scenes = [...document.querySelectorAll('.scene')];
 const countdownEls = [...document.querySelectorAll('.countdown-number')];
 const introLines = [...document.querySelectorAll('.line')];
 const galleryHeart = document.getElementById('gallery-heart');
-const responseMessage = document.getElementById('response-message');
+const galleryNextButton = document.getElementById('gallery-next');
 const prevLetterButton = document.getElementById('prev-letter');
 const nextLetterButton = document.getElementById('next-letter');
-const acceptButton = document.getElementById('accept-button');
-const delayButton = document.getElementById('delay-button');
 const letterSteps = [...document.querySelectorAll('.letter-step')];
 const starsContainer = document.getElementById('stars');
 const heartsContainer = document.getElementById('hearts');
@@ -74,9 +72,10 @@ nextLetterButton.addEventListener('click', () => {
   }
 
   setActiveScene('gallery');
-  setTimeout(() => {
-    setActiveScene('closure');
-  }, 2200);
+});
+
+galleryNextButton.addEventListener('click', () => {
+  setActiveScene('closure');
 });
 
 function buildStarField() {
@@ -144,24 +143,11 @@ function buildGallery() {
           src="${src}"
           alt="Foto ke-${index + 1}"
           style="left:${positions[index].left}; top:${positions[index].top}; --angle:${positions[index].angle}; --x-shift:${positions[index].shift}; --delay:${positions[index].delay};"
-          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80';"
         />
       `
     )
     .join('');
 }
-
-acceptButton.addEventListener('click', () => {
-  responseMessage.textContent =
-    'Serius, makasih ya, Loise. ❤️\n\nAku seneng kamu masih mau kasih aku kesempatan. Aku nggak mau nyia-nyiain kesempatan ini. Kita jalanin pelan-pelan aja, ya? Aku pengin kita sama-sama ngerasa nyaman lagi.';
-  responseMessage.classList.add('visible');
-});
-
-delayButton.addEventListener('click', () => {
-  responseMessage.textContent =
-    'Nggak apa-apa, Loise. ❤️\n\nAku ngerti kalau kamu masih butuh waktu buat mikirin semuanya. Kamu nggak harus jawab sekarang. Makasih ya udah mau baca sampai akhir. Apa pun jawaban kamu nanti, aku bakal berusaha menghargainya.';
-  responseMessage.classList.add('visible');
-});
 
 function init() {
   setActiveScene('intro');
