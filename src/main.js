@@ -56,7 +56,7 @@ function updateLetterView() {
   });
 
   prevLetterButton.disabled = currentLetterIndex === 0;
-  nextLetterButton.textContent = currentLetterIndex === letterSteps.length - 1 ? 'Lanjut ke galeri' : 'Lanjut';
+  nextLetterButton.textContent = currentLetterIndex === letterSteps.length - 1 ? 'Lanjut ke foto' : 'Lanjut';
 }
 
 prevLetterButton.addEventListener('click', () => {
@@ -153,13 +153,13 @@ function buildGallery() {
 
 acceptButton.addEventListener('click', () => {
   responseMessage.textContent =
-    'Terima kasih sudah memberiku kesempatan, Loise. Aku ingin menjalani semuanya dengan lebih baik, satu langkah demi satu langkah. ❤️';
+    'Serius, makasih ya, Loise. ❤️\n\nAku seneng kamu masih mau kasih aku kesempatan. Aku nggak mau nyia-nyiain kesempatan ini. Kita jalanin pelan-pelan aja, ya? Aku pengin kita sama-sama ngerasa nyaman lagi.';
   responseMessage.classList.add('visible');
 });
 
 delayButton.addEventListener('click', () => {
   responseMessage.textContent =
-    'Tidak apa-apa, Loise. Terima kasih sudah membaca sampai akhir. Aku akan menghargai waktumu dan keputusanmu. ❤️';
+    'Nggak apa-apa, Loise. ❤️\n\nAku ngerti kalau kamu masih butuh waktu buat mikirin semuanya. Kamu nggak harus jawab sekarang. Makasih ya udah mau baca sampai akhir. Apa pun jawaban kamu nanti, aku bakal berusaha menghargainya.';
   responseMessage.classList.add('visible');
 });
 

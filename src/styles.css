@@ -335,6 +335,8 @@ button {
 .gallery-copy {
   width: min(88vw, 740px);
   margin: 0 auto 1.25rem;
+  display: grid;
+  gap: 0.55rem;
   text-align: center;
   color: rgba(255, 223, 243, 0.86);
   font-size: clamp(0.92rem, 2.6vw, 1.2rem);
@@ -436,6 +438,7 @@ button {
   font-size: 1rem;
   color: #f6d7f2;
   line-height: 1.7;
+  white-space: pre-line;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.4s ease, transform 0.4s ease;
