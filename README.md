@@ -13,7 +13,7 @@ Website statis untuk menyampaikan permintaan maaf dan kesempatan kedua kepada Lo
 Sebelum menghasilkan QR Code final, atur environment variable:
 
 ```bash
-VITE_PUBLIC_URL=https://USERNAME.github.io/NAMA-REPOSITORY/
+VITE_PUBLIC_URL=https://Shiro-Lui.github.io/for_my_love_louise/
 npm run generate:qr
 ```
 
@@ -27,11 +27,12 @@ Atau edit `public/loise-qr.png` dengan hasil QR final setelah repository GitHub 
 
 ## Deployment GitHub Pages
 
-1. Push project ke repository GitHub.
-2. Aktifkan GitHub Pages di Settings > Pages.
-3. Jika ingin deployment otomatis, gunakan workflow GitHub Actions yang sudah disiapkan pada project.
+Workflow GitHub Actions akan membangun dan menerbitkan website setiap kali ada push ke branch `main`. Untuk repository ini, URL website adalah:
+
+https://Shiro-Lui.github.io/for_my_love_louise/
+
+Jika deployment gagal karena GitHub Pages belum diaktifkan, buka Settings > Pages, pilih **GitHub Actions** sebagai Build and deployment source, lalu jalankan ulang workflow **Deploy to GitHub Pages** dari tab Actions.
 
 ## Catatan penting
 
-- QR Code final hanya bisa dibuat setelah URL GitHub Pages yang benar diketahui.
-- URL lokal atau `example.com` hanya untuk placeholder saat pengembangan.
+- Workflow membuat QR Code yang mengarah ke URL GitHub Pages repository ini.
