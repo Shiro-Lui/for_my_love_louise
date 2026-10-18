@@ -40,34 +40,34 @@ const whatsappNumbers = ['6281297390010', '6285183190243'];
 
 const notePages = [
   [
-    'Hai, Louise ❤️',
-    'Ada sesuatu yang selama ini ingin aku sampaikan kepadamu.',
+    'Hai, Luii sayang ❤️',
+    'Aku bikin ini khusus buat kamu. Ada banyak yang pengen aku omongin, jadi baca pelan-pelan ya.',
   ],
   [
-    'Aku minta maaf karena sudah mengecewakanmu.',
-    'Aku sadar mungkin ada sikap dan perkataanku yang membuatmu terluka. Aku tidak ingin menganggap remeh perasaanmu, dan aku tahu sekadar meminta maaf tidak akan langsung memperbaiki semuanya.',
+    'Aku tahu aku sering bikin kamu kecewa.',
+    'Aku pernah ketiduran tanpa ngabarin, dan kamu jadi nunggu atau kepikiran. Maaf ya, sayang. Harusnya aku kasih kabar dulu.',
   ],
   [
-    'Aku ingin belajar dari kesalahan yang pernah aku lakukan.',
-    'Aku ingin menjadi seseorang yang lebih baik, lebih dewasa, lebih memahami perasaanmu, dan lebih bisa menjaga kepercayaanmu.',
+    'Kalau kita berantem, aku suka menghindar.',
+    'Kadang aku menghilang dan berharap masalahnya reda sendiri. Padahal kamu butuh aku tetap ada dan ngobrol sampai selesai. Aku sadar itu bikin kamu ngerasa sendirian.',
   ],
   [
-    'Jujur, sampai sekarang kamu masih berarti bagiku.',
-    'Aku masih menyimpan harapan untuk bisa memperbaiki hubungan kita, bukan dengan mengulangi kesalahan yang sama, tetapi dengan berusaha menjadi lebih baik.',
+    'Aku juga pengen jujur soal yang aku rasain.',
+    'Waktu lagi marah terus ada kata-kata pedas atau obrolan soal putus, aku ikut sakit hati dan takut kehilangan kamu. Aku nggak bilang ini buat nyalahin kamu. Aku cuma pengen kita sama-sama jaga kata-kata, bahkan pas lagi emosi.',
   ],
   [
-    'Louise, kalau masih ada kesempatan dan kamu juga menginginkannya,',
-    'aku ingin kita mencoba kembali dari awal. Aku ingin kembali menjadi pacarmu, membangun hubungan yang lebih sehat, dan membuktikan lewat tindakan bahwa permintaan maafku bukan sekadar kata-kata.',
+    'Aku nggak mau cuma bilang, “aku bakal berubah.”',
+    'Aku mau mulai dari hal nyata: kasih kabar kalau udah ngantuk, nggak menghilang pas kita ribut, dan kalau butuh waktu buat tenang, aku bakal bilang lalu balik ngobrol sampai selesai. Aku masih belajar, tapi aku pengen buktiin.',
   ],
   [
-    'Aku tidak ingin memaksamu menerima perasaanku.',
-    'Aku hanya ingin jujur tentang apa yang ada di hatiku. Maafkan aku, Louise. ❤️',
+    'Jujur, aku masih sayang banget sama kamu.',
+    'Aku masih pengen kita dan belum rela kalau hubungan ini selesai begitu aja. Aku takut kehilangan kamu, tapi aku juga nggak mau maksa. Aku pengen tahu, apa kamu masih mau coba?',
   ],
   [
-    'Maaf sudah mengecewakanmu.',
-    'Aku ingin belajar dari kesalahanku dan membuktikan bahwa aku bisa menjadi lebih baik.',
-    'Kalau masih ada kesempatan, aku ingin memperbaiki semuanya bersamamu.',
-    'Louise, maukah kamu memberiku kesempatan untuk kembali menjadi pacarmu?',
+    'Luii sayang, aku masih mau kita.',
+    'Aku masih pengen kita, tapi aku nggak mau maksa kamu.',
+    'Kalau kamu masih mau kasih kita kesempatan, aku pengen coba lagi pelan-pelan dan buktiin lewat tindakan.',
+    'Mau nggak kita mulai lagi, sayang?',
   ],
 ];
 
@@ -150,7 +150,7 @@ function renderNotePage() {
   notePageCount.textContent = `${notePageIndex + 1} / ${notePages.length}`;
   notePreviousButton.disabled = notePageIndex === 0;
   noteNextButton.textContent =
-    notePageIndex === notePages.length - 1 ? 'Pilihanmu ♡' : 'Selanjutnya →';
+    notePageIndex === notePages.length - 1 ? 'Jawab ya ♡' : 'Lanjut →';
   responseRow.hidden = true;
   responseMessage.textContent = '';
   whatsappLinks.replaceChildren();
@@ -161,7 +161,7 @@ function showResponse(message) {
   whatsappLinks.replaceChildren();
 
   const instruction = document.createElement('span');
-  instruction.textContent = 'Pesan siap dibuka:';
+  instruction.textContent = 'Kalau lebih nyaman lewat chat, pilih WA yang mau kamu hubungi:';
   whatsappLinks.append(instruction);
 
   whatsappNumbers.forEach((number, index) => {
@@ -227,7 +227,7 @@ function updateAudioControls() {
   playButton.classList.toggle('is-playing', !audio.paused);
   playButton.setAttribute(
     'aria-label',
-    !hasTracks ? 'Pilih lagu untuk diputar' : audio.paused ? 'Putar musik' : 'Jeda musik'
+    !hasTracks ? 'Pilih lagu buat diputar' : audio.paused ? 'Putar lagu' : 'Jeda lagu'
   );
   renderPlaylist();
 }
@@ -242,8 +242,8 @@ function loadTrack(index, shouldPlay = false) {
   audio.src = track.src;
   trackTitle.textContent = track.title;
   trackStatus.textContent = track.local
-    ? 'Lagu pilihanmu siap diputar.'
-    : 'Memuat lagu…';
+    ? 'Lagunya siap diputar ♡'
+    : 'Lagi nyiapin lagunya…';
   currentTimeLabel.textContent = '0:00';
   durationTimeLabel.textContent = '0:00';
   audioProgress.value = '0';
@@ -251,7 +251,7 @@ function loadTrack(index, shouldPlay = false) {
 
   if (shouldPlay) {
     audio.play().catch(() => {
-      trackStatus.textContent = 'Lagu tidak dapat diputar. Coba pilih file audio lain.';
+      trackStatus.textContent = 'Lagunya nggak bisa diputar. Coba pilih file audio lain ya.';
       updateAudioControls();
     });
   }
@@ -273,8 +273,8 @@ function updatePhoto(direction) {
 
   window.setTimeout(() => {
     photoImage.src = `${baseUrl}images/photo${photoIndex + 1}.jpg`;
-    photoImage.alt = `Foto kenangan ${photoIndex + 1}`;
-    photoOpenButton.setAttribute('aria-label', `Perbesar foto kenangan ${photoIndex + 1}`);
+    photoImage.alt = `Foto kita ${photoIndex + 1}`;
+    photoOpenButton.setAttribute('aria-label', `Buka foto kita ${photoIndex + 1}`);
     photoCaption.textContent = `Foto ${photoIndex + 1} dari ${photoCount}`;
     if (!photoViewer.hidden) {
       syncPhotoViewer();
@@ -369,13 +369,13 @@ noteNextButton.addEventListener('click', () => {
 
 document.getElementById('accept-button').addEventListener('click', () => {
   showResponse(
-    'Terima kasih sudah memberiku kesempatan, Louise. Aku ingin menjalani semuanya dengan lebih baik, satu langkah demi satu langkah. ❤️'
+    'Makasih ya, sayang. Aku nggak akan anggap ini sepele. Aku pengen buktiin pelan-pelan lewat sikapku, bukan janji doang. ❤️'
   );
 });
 
 document.getElementById('delay-button').addEventListener('click', () => {
   showResponse(
-    'Tidak apa-apa, Louise. Terima kasih sudah membaca sampai akhir. Aku akan menghargai waktumu dan keputusanmu. ❤️'
+    'Aku ngerti, Luii. Makasih udah jujur. Aku bakal hargai keputusanmu dan nggak maksa kamu. ❤️'
   );
 });
 
@@ -461,9 +461,9 @@ function reportBunnyLoadError(error) {
     const message = button.querySelector('.bunny-error');
     if (message) {
       message.hidden = false;
-      message.textContent = 'Model kelinci 3D tidak dapat dimuat.';
+      message.textContent = 'Yah, kelincinya nggak bisa dimuat.';
     }
-    button.setAttribute('aria-label', 'Model kelinci 3D tidak dapat dimuat');
+    button.setAttribute('aria-label', 'Yah, kelincinya nggak bisa dimuat');
   });
 }
 
@@ -723,7 +723,7 @@ audioFiles.addEventListener('change', async () => {
   );
 
   if (validFiles.length === 0) {
-    trackStatus.textContent = 'Pilih file audio berformat MP3 atau format audio umum.';
+    trackStatus.textContent = 'Pilih MP3 atau file audio lain dari perangkatmu ya.';
     audioFiles.value = '';
     return;
   }
@@ -737,7 +737,7 @@ audioFiles.addEventListener('change', async () => {
 
   if (playableFiles.length === 0) {
     trackStatus.textContent =
-      'File ini sebenarnya berformat MP4/DASH, bukan MP3 biasa. Konversikan ke MP3 standar atau pilih file audio lain.';
+      'File ini ternyata MP4/DASH, bukan MP3 biasa. Coba konversi ke MP3 atau pilih lagu lain ya.';
     return;
   }
 
@@ -754,25 +754,25 @@ audioFiles.addEventListener('change', async () => {
   activeTrackIndex = 0;
   loadTrack(activeTrackIndex, true);
   trackStatus.textContent = dashFiles.size
-    ? `Memutar ${audioTracks[activeTrackIndex].title}. File MP4/DASH dilewati karena tidak kompatibel.`
-    : `Memutar ${audioTracks[activeTrackIndex].title}. File hanya digunakan di browser ini.`;
+    ? `Lagi muter ${audioTracks[activeTrackIndex].title}. File MP4/DASH dilewati karena nggak kompatibel ya.`
+    : `Lagi muter ${audioTracks[activeTrackIndex].title}. File ini cuma dipakai di browser kamu.`;
 });
 
 playButton.addEventListener('click', () => {
   if (!audioTracks.length) {
-    trackStatus.textContent = 'Pilih file MP3 Westlife — My Love atau lagu lain dari perangkatmu.';
+    trackStatus.textContent = 'Pilih lagu yang pengen kamu dengerin dari perangkatmu ya ♡';
     audioFiles.click();
     return;
   }
 
   if (audio.paused) {
     audio.play().catch(() => {
-      trackStatus.textContent = 'Browser tidak dapat memutar lagu ini. Coba pilih MP3 lain.';
+      trackStatus.textContent = 'Browser-nya nggak bisa muter lagu ini. Coba pilih lagu lain ya.';
       updateAudioControls();
     });
   } else {
     audio.pause();
-    trackStatus.textContent = 'Lagu dijeda.';
+    trackStatus.textContent = 'Lagunya dijeda dulu ya.';
   }
 });
 
@@ -783,15 +783,15 @@ audio.addEventListener('loadedmetadata', () => {
   durationTimeLabel.textContent = formatTime(audio.duration);
   if (audio.paused) {
     trackStatus.textContent = audioTracks[activeTrackIndex]?.local
-      ? 'Lagu pilihanmu siap diputar.'
-      : 'Lagu siap diputar.';
+      ? 'Lagu pilihanmu siap diputar ♡'
+      : 'Lagunya siap diputar ♡';
   }
   audioProgress.disabled = !Number.isFinite(audio.duration) || audio.duration <= 0;
 });
 
 photoImage.addEventListener('error', () => {
-  photoImage.alt = 'Foto ini tidak dapat dimuat';
-  photoCaption.textContent = 'Foto ini tidak dapat dimuat.';
+  photoImage.alt = 'Foto kita ini nggak bisa dimuat';
+  photoCaption.textContent = 'Yah, fotonya nggak bisa dimuat.';
 });
 
 audio.addEventListener('timeupdate', () => {
@@ -802,7 +802,7 @@ audio.addEventListener('timeupdate', () => {
 });
 
 audio.addEventListener('play', () => {
-  trackStatus.textContent = `Sedang diputar: ${audioTracks[activeTrackIndex]?.title ?? 'lagu pilihanmu'}.`;
+  trackStatus.textContent = `Lagi muter: ${audioTracks[activeTrackIndex]?.title ?? 'lagu pilihanmu'}.`;
   updateAudioControls();
 });
 audio.addEventListener('pause', () => {
@@ -812,13 +812,13 @@ audio.addEventListener('ended', () => {
   if (audioTracks.length > 1) {
     changeTrack(1);
   } else {
-    trackStatus.textContent = 'Lagu selesai diputar.';
+    trackStatus.textContent = 'Lagunya selesai. Mau dengerin lagi?';
   }
 });
 
 audio.addEventListener('error', () => {
   if (audioTracks.length) {
-    trackStatus.textContent = 'File audio tidak dapat dimuat. Pilih file MP3 lain.';
+    trackStatus.textContent = 'File audionya nggak bisa dibuka. Coba pilih lagu lain ya.';
   }
 });
 
