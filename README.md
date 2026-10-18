@@ -10,14 +10,11 @@ Website statis untuk menyampaikan permintaan maaf dan kesempatan kedua kepada Lo
 
 ## Konfigurasi URL QR Code
 
-QR Code berbentuk hati dibuat dengan tingkat koreksi error tinggi agar tetap mudah dipindai. Sebelum membuat QR Code untuk alamat situs, atur environment variable:
+QR Code hati dihasilkan menggunakan [QR Studio](https://qr-studio.app/heart-shaped-qr-code.php) dengan alamat GitHub Pages situs ini, lalu disimpan sebagai gambar statis:
 
-```bash
-VITE_PUBLIC_URL=https://Shiro-Lui.github.io/for_my_love_louise/
-npm run generate:qr
-```
+`public/loise-qr.png`
 
-Gambar QR Code tersimpan di `public/loise-qr.png`.
+Saat memperbarui QR, buat kode hati baru di QR Studio dan ganti gambar tersebut. GitHub Actions akan menerbitkan file apa adanya tanpa membuat ulang QR.
 
 ## Foto galeri
 
@@ -33,4 +30,4 @@ Jika deployment gagal karena GitHub Pages belum diaktifkan, buka Settings > Page
 
 ## Catatan penting
 
-- Workflow membuat QR Code yang mengarah ke URL GitHub Pages repository ini.
+- File QR statis di `public/loise-qr.png` mengarah ke URL GitHub Pages repository ini.

@@ -8,14 +8,9 @@
     "dev": "vite --host 0.0.0.0",
     "prebuild": "node scripts/generate-gallery-manifest.mjs",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0",
-    "generate:qr": "node scripts/generate-qr.mjs"
+    "preview": "vite preview --host 0.0.0.0"
   },
   "devDependencies": {
-    "qrcode": "^1.5.4",
     "vite": "^5.4.10"
-  },
-  "dependencies": {
-    "pngjs": "^5.0.0"
   }
 }
