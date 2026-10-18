@@ -10,14 +10,14 @@ Website statis untuk menyampaikan permintaan maaf dan kesempatan kedua kepada Lo
 
 ## Konfigurasi URL QR Code
 
-Sebelum menghasilkan QR Code final, atur environment variable:
+QR Code berbentuk hati dibuat dengan tingkat koreksi error tinggi agar tetap mudah dipindai. Sebelum membuat QR Code untuk alamat situs, atur environment variable:
 
 ```bash
 VITE_PUBLIC_URL=https://Shiro-Lui.github.io/for_my_love_louise/
 npm run generate:qr
 ```
 
-Atau edit `public/loise-qr.png` dengan hasil QR final setelah repository GitHub Pages aktif.
+Gambar QR Code tersimpan di `public/loise-qr.png`.
 
 ## Foto galeri
 

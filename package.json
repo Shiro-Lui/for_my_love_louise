@@ -14,5 +14,8 @@
   "devDependencies": {
     "qrcode": "^1.5.4",
     "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "pngjs": "^5.0.0"
   }
 }
