@@ -1,6 +1,6 @@
-# Website Permintaan Maaf untuk Loise
+# Website Permintaan Maaf untuk Louise
 
-Website statis permintaan maaf untuk Loise, disajikan sebagai jendela aplikasi kawaii berwarna
+Website statis permintaan maaf untuk Louise, disajikan sebagai jendela aplikasi kawaii berwarna
 pastel. Isi surat, pilihan respons, galeri foto, dan pemutar musik berada dalam satu pengalaman.
 
 ## Cara menjalankan

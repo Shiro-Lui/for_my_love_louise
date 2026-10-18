@@ -40,7 +40,7 @@ const whatsappNumbers = ['6281297390010', '6285183190243'];
 
 const notePages = [
   [
-    'Hai, Loise ❤️',
+    'Hai, Louise ❤️',
     'Ada sesuatu yang selama ini ingin aku sampaikan kepadamu.',
   ],
   [
@@ -56,18 +56,18 @@ const notePages = [
     'Aku masih menyimpan harapan untuk bisa memperbaiki hubungan kita, bukan dengan mengulangi kesalahan yang sama, tetapi dengan berusaha menjadi lebih baik.',
   ],
   [
-    'Loise, kalau masih ada kesempatan dan kamu juga menginginkannya,',
+    'Louise, kalau masih ada kesempatan dan kamu juga menginginkannya,',
     'aku ingin kita mencoba kembali dari awal. Aku ingin kembali menjadi pacarmu, membangun hubungan yang lebih sehat, dan membuktikan lewat tindakan bahwa permintaan maafku bukan sekadar kata-kata.',
   ],
   [
     'Aku tidak ingin memaksamu menerima perasaanku.',
-    'Aku hanya ingin jujur tentang apa yang ada di hatiku. Maafkan aku, Loise. ❤️',
+    'Aku hanya ingin jujur tentang apa yang ada di hatiku. Maafkan aku, Louise. ❤️',
   ],
   [
     'Maaf sudah mengecewakanmu.',
     'Aku ingin belajar dari kesalahanku dan membuktikan bahwa aku bisa menjadi lebih baik.',
     'Kalau masih ada kesempatan, aku ingin memperbaiki semuanya bersamamu.',
-    'Loise, maukah kamu memberiku kesempatan untuk kembali menjadi pacarmu?',
+    'Louise, maukah kamu memberiku kesempatan untuk kembali menjadi pacarmu?',
   ],
 ];
 
@@ -369,13 +369,13 @@ noteNextButton.addEventListener('click', () => {
 
 document.getElementById('accept-button').addEventListener('click', () => {
   showResponse(
-    'Terima kasih sudah memberiku kesempatan, Loise. Aku ingin menjalani semuanya dengan lebih baik, satu langkah demi satu langkah. ❤️'
+    'Terima kasih sudah memberiku kesempatan, Louise. Aku ingin menjalani semuanya dengan lebih baik, satu langkah demi satu langkah. ❤️'
   );
 });
 
 document.getElementById('delay-button').addEventListener('click', () => {
   showResponse(
-    'Tidak apa-apa, Loise. Terima kasih sudah membaca sampai akhir. Aku akan menghargai waktumu dan keputusanmu. ❤️'
+    'Tidak apa-apa, Louise. Terima kasih sudah membaca sampai akhir. Aku akan menghargai waktumu dan keputusanmu. ❤️'
   );
 });
 
