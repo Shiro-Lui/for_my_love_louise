@@ -5,175 +5,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Ada sesuatu yang pengin aku sampein ke kamu, Loise."
+      content="Sebuah pesan tulus untuk Loise, disampaikan dari hati."
     />
-    <title>Buat Loise</title>
+    <meta name="theme-color" content="#fff5f6" />
+    <title>Untuk Loise ♡</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/styles.css" />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
-    <div id="app">
-      <section class="scene intro-scene active" aria-live="polite">
-        <canvas id="rain-canvas" aria-hidden="true"></canvas>
-        <div class="intro-overlay">
-          <div class="countdown-wrapper" aria-label="Hitung mundur">
-            <div class="countdown-number active" data-count="3">3</div>
-            <div class="countdown-number" data-count="2">2</div>
-            <div class="countdown-number" data-count="1">1</div>
+    <main id="app">
+      <section class="application-window" id="application-window" aria-label="Aplikasi untuk Loise">
+        <header class="title-bar">
+          <div class="title-hearts" aria-label="Hati">
+            <span aria-hidden="true">♥</span>
+            <span aria-hidden="true">♥</span>
+            <span aria-hidden="true">♥</span>
           </div>
-          <div class="intro-lines" aria-live="polite">
-            <div class="line" data-line="0">Hai, Loise...</div>
-            <div class="line" data-line="1">Aku punya sesuatu yang pengen aku sampein ke kamu.</div>
-            <div class="line" data-line="2">Ada hal yang dari kemarin pengen aku omongin, tapi aku bingung harus mulai dari mana.</div>
+          <div class="title-controls">
+            <button class="window-icon" id="mail-button" type="button" aria-label="Buka Note">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3.5 6.5h17v12h-17z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+            </button>
+            <button class="window-icon" id="profile-button" type="button" aria-label="Kembali ke awal">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="3.3" />
+                <path d="M5.5 20c.4-4 2.7-6.2 6.5-6.2s6.1 2.2 6.5 6.2z" />
+              </svg>
+            </button>
+            <button class="window-icon close-window" id="close-button" type="button" aria-label="Tutup jendela">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 6 12 12M18 6 6 18" />
+              </svg>
+            </button>
           </div>
-        </div>
-      </section>
+        </header>
 
-      <section class="scene sky-scene" aria-label="Latar langit malam">
-        <div class="sky-glow"></div>
-        <div class="stars" id="stars" aria-hidden="true"></div>
-        <div class="hearts" id="hearts" aria-hidden="true"></div>
-        <div class="sky-message">
-          <span>Loise...</span>
-          <span>Aku bingung harus mulai dari mana, tapi aku pengen jujur sama kamu.</span>
-        </div>
-      </section>
+        <div class="content-frame">
+          <div class="window-content" id="window-content">
+            <section class="app-page home-page active" id="home-page" aria-labelledby="home-title">
+              <p class="eyebrow">sebuah pesan kecil untukmu</p>
+              <h1 id="home-title">Hai, Loise <span aria-hidden="true">♡</span></h1>
+              <button class="bunny-trigger home-bunny" type="button" aria-label="Kelinci lucu, klik untuk melihatnya bergerak" title="Model kelinci 3D karya Minimoku">
+              </button>
+              <h2>Aku minta maaf.</h2>
+              <p class="home-copy">
+                Aku minta maaf karena sudah mengecewakanmu. Ada sesuatu yang ingin aku sampaikan
+                kepadamu.
+              </p>
+              <button class="cute-button home-continue" id="home-continue" type="button">
+                Baca pesanku <span aria-hidden="true">♡</span>
+              </button>
+            </section>
 
-      <section class="scene letter-scene" aria-label="Pesan buat Loise">
-        <div class="letter-card">
-          <div class="letter-badge">Buat Loise</div>
-          <div class="letter-slider" id="letter-slider">
-            <article class="letter-step active">
-              <p>Hai, Loise ❤️</p>
-              <p>Aku mau minta maaf ya, karena aku udah ngecewain kamu.</p>
-            </article>
-            <article class="letter-step">
-              <p>
-                Aku sadar mungkin ada sikap atau perkataanku yang bikin kamu sakit hati. Aku nggak mau
-                pura-pura semuanya baik-baik aja, apalagi bertingkah seolah-olah aku nggak bikin kamu
-                kecewa.
-              </p>
-            </article>
-            <article class="letter-step">
-              <p>
-                Aku tahu minta maaf aja nggak cukup buat ngebenerin semuanya. Aku juga nggak bisa minta
-                kamu langsung lupain apa yang udah terjadi.
-              </p>
-              <p>
-                Tapi aku beneran nyesel dan aku pengen belajar dari kesalahan aku.
-              </p>
-            </article>
-            <article class="letter-step">
-              <p>
-                Jujur, sampai sekarang aku masih sayang sama kamu. Aku masih kangen kita yang dulu,
-                masih kangen ngobrol sama kamu, dan masih pengen punya kesempatan buat jalanin semuanya
-                bareng kamu lagi.
-              </p>
-            </article>
-            <article class="letter-step">
-              <p>
-                Aku tahu mungkin sekarang semuanya nggak semudah dulu. Aku juga nggak mau cuma janji
-                bakal berubah, terus akhirnya ngulangin kesalahan yang sama.
-              </p>
-              <p>
-                Aku pengen belajar buat jadi lebih baik, buat lebih ngerti kamu, dan buat lebih jaga
-                perasaan kamu.
-              </p>
-            </article>
-            <article class="letter-step">
-              <p>
-                Loise, kalau kamu tanya apa aku masih pengen sama kamu, jawabannya iya. Aku masih
-                pengen kamu. Aku masih pengen jadi pacar kamu lagi.
-              </p>
-            </article>
-            <article class="letter-step">
-              <p>
-                Aku nggak tahu kamu sekarang ngerasain hal yang sama atau nggak. Aku juga nggak mau
-                maksa kamu buat nerima aku lagi cuma karena aku masih sayang sama kamu.
-              </p>
-            </article>
-            <article class="letter-step">
-              <p>
-                Aku cuma pengen kamu tahu kalau aku masih berharap kita bisa coba sekali lagi. Kalau
-                kamu masih mau kasih aku kesempatan, aku pengen kita mulai pelan-pelan, ngobrol
-                baik-baik, dan sama-sama benerin apa yang kemarin belum bisa kita jaga.
-              </p>
-            </article>
-            <article class="letter-step">
-              <p>
-                Maaf ya, Loise, buat semua hal yang bikin kamu kecewa. Aku nggak bisa janji bakal
-                selalu sempurna, tapi aku pengen belajar jadi lebih baik, bukan cuma buat kamu, tapi
-                juga buat hubungan kita kalau memang kita masih punya kesempatan.
-              </p>
-              <p>Aku masih sayang sama kamu. ❤️</p>
-            </article>
-          </div>
-          <div class="letter-actions">
-            <button class="ghost-button" id="prev-letter" type="button">Kembali</button>
-            <button class="primary-button" id="next-letter" type="button">Lanjut</button>
-          </div>
-        </div>
-      </section>
+            <section class="app-page note-page" id="note-page" aria-labelledby="note-title" hidden>
+              <div class="page-heading">
+                <button class="bunny-trigger note-bunny" type="button" aria-label="Kelinci lucu, klik untuk melihatnya bergerak" title="Model kelinci 3D karya Minimoku">
+                </button>
+                <div>
+                  <p class="eyebrow">dibaca pelan-pelan ya</p>
+                  <h1 id="note-title">Note untuk Loise</h1>
+                </div>
+              </div>
+              <div class="note-paper" id="note-paper" aria-live="polite"></div>
+              <div class="note-controls">
+                <button class="small-button" id="note-previous" type="button">← Sebelumnya</button>
+                <span class="page-count" id="note-page-count" aria-live="polite"></span>
+                <button class="small-button" id="note-next" type="button">Selanjutnya →</button>
+              </div>
+              <div class="response-row" id="response-row" hidden>
+                <button class="cute-button" id="accept-button" type="button">Aku Mau ♡</button>
+                <button class="small-button" id="delay-button" type="button">Aku Butuh Waktu</button>
+              </div>
+              <p class="response-message" id="response-message" aria-live="polite"></p>
+              <div class="whatsapp-links" id="whatsapp-links" aria-live="polite"></div>
+            </section>
 
-      <section class="scene gallery-scene" aria-label="Galeri foto hati">
-        <div class="gallery-copy" aria-label="Cerita yang pengen aku bagi">
-          <p>Kalau boleh jujur, aku masih pengen punya banyak cerita bareng kamu.</p>
-          <p>Aku masih pengen ketawa bareng kamu, ngobrol tentang hal-hal kecil, dan ngelewatin hari-hari biasa sama kamu.</p>
-          <p>Aku tahu kita nggak bisa langsung balik kayak dulu. Tapi kalau kamu masih mau, aku pengen kita coba lagi, pelan-pelan.</p>
-          <p class="gallery-hint">Ketuk salah satu foto buat lihat lebih dekat.</p>
-        </div>
-        <div class="gallery-heart" id="gallery-heart" aria-label="Galeri foto berbentuk hati"></div>
-        <div class="gallery-actions">
-          <button class="primary-button" id="gallery-next" type="button">Lanjut</button>
-        </div>
-      </section>
+            <section class="app-page pict-page" id="pict-page" aria-labelledby="pict-title" hidden>
+              <p class="eyebrow">kenangan kecil kita</p>
+              <h1 id="pict-title">Pict <span aria-hidden="true">♡</span></h1>
+              <p class="gallery-copy">
+                Beberapa hal mungkin telah berubah, tetapi aku masih ingin memperbaiki apa yang pernah
+                kita punya.
+              </p>
+              <div class="photo-stage">
+                <button class="photo-arrow" id="photo-previous" type="button" aria-label="Foto sebelumnya">
+                  ‹
+                </button>
+                <figure class="photo-frame" id="photo-frame">
+                  <button
+                    class="photo-open-button"
+                    id="photo-open-button"
+                    type="button"
+                    aria-label="Perbesar foto kenangan 1"
+                  >
+                    <img id="photo-image" src="./images/photo1.jpg" alt="Foto kenangan 1" />
+                  </button>
+                  <figcaption id="photo-caption">Foto 1 dari 10</figcaption>
+                </figure>
+                <button class="photo-arrow" id="photo-next" type="button" aria-label="Foto berikutnya">
+                  ›
+                </button>
+              </div>
+              <div class="photo-hearts" aria-hidden="true">♡　♥　♡</div>
+            </section>
 
-      <dialog class="photo-viewer" id="photo-viewer" aria-label="Lihat foto">
-        <div class="photo-viewer-header">
-          <p id="photo-caption" aria-live="polite"></p>
-          <button class="ghost-button photo-close" id="photo-close" type="button" aria-label="Tutup foto">
-            Tutup
-          </button>
-        </div>
-        <img class="photo-viewer-image" id="photo-viewer-image" alt="" />
-        <div class="photo-viewer-actions">
-          <button class="ghost-button" id="photo-previous" type="button">Sebelumnya</button>
-          <button class="primary-button" id="photo-next" type="button">Berikutnya</button>
-        </div>
-      </dialog>
-
-      <section class="scene closure-scene" aria-label="Coba lagi bareng aku?">
-        <div class="closure-content">
-          <p class="closing-tag">Buat Loise ❤️</p>
-          <p>Loise, aku boleh minta satu kesempatan lagi nggak?</p>
-          <p>Aku masih pengen jadi pacar kamu. Aku masih pengen jalanin hubungan ini sama kamu, tapi kali ini aku pengen berusaha lebih baik.</p>
-          <h2>Kamu mau coba lagi sama aku nggak, Loise? ❤️</h2>
-          <div class="response-row">
-            <a
-              class="primary-button accept-button"
-              href="https://wa.me/6281297390010?text=Hai%2C%20aku%20mau%20coba%20lagi%20sama%20kamu%20%F0%9F%92%96"
-              target="_blank"
-              rel="noopener noreferrer"
+            <section
+              class="photo-viewer"
+              id="photo-viewer"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="photo-viewer-caption"
+              tabindex="-1"
+              hidden
             >
-              Aku Mau ❤️
-            </a>
-            <a
-              class="ghost-button delay-button"
-              href="https://wa.me/6281297390010?text=Hai%2C%20aku%20masih%20butuh%20waktu%20buat%20mikirin%20semuanya.%20Nanti%20aku%20kabarin%20ya%20%F0%9F%A4%8D"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Aku Butuh Waktu 🤍
-            </a>
+              <div class="photo-viewer-card">
+                <button class="photo-viewer-close" id="photo-viewer-close" type="button" aria-label="Tutup foto">
+                  ×
+                </button>
+                <img id="photo-viewer-image" alt="" />
+                <p class="photo-viewer-caption" id="photo-viewer-caption"></p>
+                <span class="photo-viewer-hint">Klik di luar foto atau tekan Esc untuk kembali ♡</span>
+              </div>
+            </section>
+
+            <section class="app-page kaseta-page" id="kaseta-page" aria-labelledby="kaseta-title" hidden>
+              <p class="eyebrow">sedikit lagu untuk menemani</p>
+              <h1 id="kaseta-title">Kaseta <span aria-hidden="true">♫</span></h1>
+              <img class="cassette-art" src="./src/pink-cassette.svg" alt="Ilustrasi kaset merah muda" />
+              <div class="music-player">
+                <p class="track-title" id="track-title">Belum ada lagu dipilih</p>
+                <p class="track-status" id="track-status">
+                  Tekan putar untuk memilih MP3 Westlife — My Love atau lagu lain.
+                </p>
+                <audio id="audio-player" preload="metadata"></audio>
+                <label class="progress-label" for="audio-progress">Progress lagu</label>
+                <input id="audio-progress" class="progress-slider" type="range" min="0" max="1000" value="0" disabled />
+                <div class="time-row">
+                  <span id="current-time">0:00</span>
+                  <span id="duration-time">0:00</span>
+                </div>
+                <div class="player-controls">
+                  <button class="player-button" id="track-previous" type="button" aria-label="Lagu sebelumnya" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M19 6 8 12l11 6z" /></svg>
+                  </button>
+                  <button class="player-button play-button" id="play-button" type="button" aria-label="Pilih lagu untuk diputar">
+                    <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7z" /></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z" /></svg>
+                  </button>
+                  <button class="player-button" id="track-next" type="button" aria-label="Lagu berikutnya" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M5 6l11 6-11 6z" /></svg>
+                  </button>
+                </div>
+                <label class="cute-button upload-button" for="audio-files">Pilih file MP3 ♡</label>
+                <input id="audio-files" class="visually-hidden" type="file" accept="audio/*,.mp3" multiple />
+                <ol class="playlist" id="playlist" aria-label="Daftar lagu"></ol>
+              </div>
+            </section>
           </div>
         </div>
+
+        <div class="heart-divider" aria-hidden="true">♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡</div>
+        <nav class="page-navigation" aria-label="Navigasi halaman">
+          <button class="nav-button" type="button" data-page="note-page">Note</button>
+          <button class="nav-button" type="button" data-page="pict-page">Pict</button>
+          <button class="nav-button" type="button" data-page="kaseta-page">Kaseta</button>
+        </nav>
+        <footer class="window-footer">
+          <span>( Made with Love )</span>
+        </footer>
       </section>
-    </div>
+
+      <button class="reopen-button" id="reopen-button" type="button" hidden>
+        Buka lagi ♡
+      </button>
+      <div class="heart-sparkles" id="heart-sparkles" aria-hidden="true"></div>
+    </main>
+    <template id="bunny-artwork">
+      <canvas class="bunny-art" aria-hidden="true"></canvas>
+      <span class="bunny-error" aria-live="polite" hidden></span>
+    </template>
   </body>
 </html>

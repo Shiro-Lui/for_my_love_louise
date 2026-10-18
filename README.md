@@ -1,6 +1,7 @@
 # Website Permintaan Maaf untuk Loise
 
-Website statis untuk menyampaikan permintaan maaf dan kesempatan kedua kepada Loise.
+Website statis permintaan maaf untuk Loise, disajikan sebagai jendela aplikasi kawaii berwarna
+pastel. Isi surat, pilihan respons, galeri foto, dan pemutar musik berada dalam satu pengalaman.
 
 ## Cara menjalankan
 
@@ -8,26 +9,42 @@ Website statis untuk menyampaikan permintaan maaf dan kesempatan kedua kepada Lo
 2. `npm run dev`
 3. Buka alamat lokal yang ditampilkan di terminal.
 
-## Konfigurasi URL QR Code
+## Foto kenangan
 
-QR Code hati dihasilkan menggunakan [QR Studio](https://qr-studio.app/heart-shaped-qr-code.php) dengan alamat GitHub Pages situs ini, lalu disimpan sebagai gambar statis:
+Halaman **Pict** menampilkan sepuluh foto kenangan di `public/images/photo1.jpg` sampai
+`photo10.jpg`. Gunakan tombol panah untuk berpindah.
 
-`public/loise-qr.png`
+## Model kelinci 3D
 
-Saat memperbarui QR, buat kode hati baru di QR Studio dan ganti gambar tersebut. GitHub Actions akan menerbitkan file apa adanya tanpa membuat ulang QR.
+Model FBX dan tekstur yang digunakan di website berada di `public/models/bunny/`. Model
+dibuat oleh Minimoku; izin penggunaan dan publikasi di website telah dikonfirmasi oleh pemilik
+project. Pertahankan kredit ini dan ikuti ketentuan lisensi sumber saat membagikan website.
 
-## Foto galeri
+## Menambahkan musik
 
-Letakkan semua foto galeri di folder `public/picture/`. Foto JPG, PNG, WebP, GIF, dan AVIF akan dimasukkan otomatis saat situs dijalankan atau dibangun. Urutan foto mengikuti nama file. Klik foto di susunan berbentuk hati untuk membukanya, lalu gunakan tombol sebelumnya/berikutnya untuk melihat foto lain.
+Halaman **Kaseta** memutar file audio yang dipilih dari perangkat. Tekan tombol **Putar** untuk
+memilih file MP3 Westlife — My Love atau lagu lain; lagu akan langsung diputar setelah dipilih.
+Tombol **Pilih file MP3** juga dapat digunakan untuk mengganti atau memilih beberapa lagu.
+Pemutar tetap berjalan saat berpindah ke halaman **Note** atau **Pict**. File yang dipilih hanya
+tersedia di browser tersebut dan tidak diunggah ke server.
+
+Untuk menyertakan lagu pada website yang di-deploy:
+
+1. Buat folder `public/assets/music/` dan letakkan file audio yang boleh dibagikan di sana.
+2. Buka `src/main.js` dan tambahkan setiap lagu ke array `configuredTracks`, misalnya:
+
+   ```js
+   const configuredTracks = [
+     { title: 'Judul lagu', src: `${baseUrl}assets/music/01-song.mp3` },
+   ];
+   ```
+
+3. Build dan deploy ulang website. Gunakan hanya audio yang Anda punya izin untuk dibagikan.
+
+Website tidak menyertakan rekaman Westlife; untuk memutarnya, pilih file yang tersedia di perangkat.
 
 ## Deployment GitHub Pages
 
-Workflow GitHub Actions akan membangun dan menerbitkan website setiap kali ada push ke branch `main`. Untuk repository ini, URL website adalah:
-
-https://Shiro-Lui.github.io/for_my_love_louise/
-
-Jika deployment gagal karena GitHub Pages belum diaktifkan, buka Settings > Pages, pilih **GitHub Actions** sebagai Build and deployment source, lalu jalankan ulang workflow **Deploy to GitHub Pages** dari tab Actions.
-
-## Catatan penting
-
-- File QR statis di `public/loise-qr.png` mengarah ke URL GitHub Pages repository ini.
+1. Push project ke repository GitHub.
+2. Aktifkan GitHub Pages di Settings > Pages.
+3. Jika ingin deployment otomatis, gunakan workflow GitHub Actions yang sudah disiapkan pada project.

@@ -15,5 +15,9 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
       port: 4173,
     },
+    build: {
+      // Three.js is 747 kB uncompressed but about 192 kB gzipped.
+      chunkSizeWarningLimit: 800,
+    },
   };
 });

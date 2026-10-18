@@ -4,13 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "predev": "node scripts/generate-gallery-manifest.mjs",
     "dev": "vite --host 0.0.0.0",
-    "prebuild": "node scripts/generate-gallery-manifest.mjs",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
   "devDependencies": {
     "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
   }
 }
